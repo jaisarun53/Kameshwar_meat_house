@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model BusinessInfo {
+  id            Int          @id @default(autoincrement())
+  name          String
+  tagline       String?
+  story         String?
+  primaryPhone  String?
+  whatsappPhone String?
+  addressLine   String?
+  ward          String?
+  municipality  String?
+  district      String?
+  province      String?
+  country       String?
+  mapsUrl       String?
+  openingHours  String?
+  heroImageUrl  String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  socialLinks   SocialLink[]
+}
+
+model SocialLink {
+  id             Int          @id @default(autoincrement())
+  businessInfoId Int
+  platform       String
+  url            String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  businessInfo   BusinessInfo @relation(fields: [businessInfoId], references: [id], onDelete: Cascade)
+}
+
+model Category {
+  id           Int        @id @default(autoincrement())
+  name         String
+  slug         String?    @unique
+  displayOrder Int        @default(0)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  menuItems    MenuItem[]
+}
+
+model MenuItem {
+  id           Int       @id @default(autoincrement())
+  categoryId   Int
+  name         String
+  description  String?
+  price        Decimal   @db.Decimal(10, 2)
+  currency     String    @default("NPR")
+  imageUrl     String?
+  isFeatured   Boolean   @default(false)
+  isAvailable  Boolean   @default(true)
+  displayOrder Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  category     Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
+
+model GalleryImage {
+  id           Int      @id @default(autoincrement())
+  title        String
+  caption      String?
+  imageUrl     String
+  altText      String?
+  isFeatured   Boolean  @default(false)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Testimonial {
+  id           Int      @id @default(autoincrement())
+  customerName String
+  sourceLabel  String?
+  quote        String
+  isFeatured   Boolean  @default(false)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model MediaMention {
+  id            Int      @id @default(autoincrement())
+  title         String
+  sourceName    String
+  sourceType    String?
+  summary       String?
+  url           String
+  thumbnailUrl  String?
+  isFeatured    Boolean  @default(false)
+  publishedAt   DateTime?
+  displayOrder  Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Inquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String?
+  phone       String?
+  inquiryType String?
+  message     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
