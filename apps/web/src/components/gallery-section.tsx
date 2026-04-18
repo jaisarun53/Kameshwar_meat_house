@@ -21,36 +21,35 @@ export function GallerySection({ images }: GallerySectionProps) {
         </p>
       </div>
       <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
-        {images.map((image, index) => (
-          <article
-            key={image.id}
-            className={`glass-panel overflow-hidden rounded-[2rem] ${
-              index === 0 ? 'min-h-[560px]' : 'min-h-[270px]'
-            } ${index === 0 ? '' : 'lg:min-h-[272px]'}`}
-          >
-            <div className="relative h-full min-h-inherit">
-              <Image
-                src={image.imageUrl}
-                alt={image.altText}
-                fill
-                className="object-cover opacity-90 transition duration-700 hover:scale-[1.04]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-              <div className="absolute left-0 top-0 p-6 sm:p-8">
-                {image.isPlaceholder ? (
-                  <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/65">
-                    Dummy image
-                  </span>
-                ) : null}
+        {images.map((image, index) => {
+          const imageHeight = index === 0 ? 'min-h-[560px]' : 'min-h-[270px] lg:min-h-[272px]';
+
+          return (
+            <article key={image.id} className={`glass-panel overflow-hidden rounded-[2rem] ${imageHeight}`}>
+              <div className={`relative h-full ${imageHeight}`}>
+                <Image
+                  src={image.imageUrl}
+                  alt={image.altText}
+                  fill
+                  className="object-cover opacity-90 transition duration-700 hover:scale-[1.04]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                <div className="absolute left-0 top-0 p-6 sm:p-8">
+                  {image.isPlaceholder ? (
+                    <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/65">
+                      Dummy image
+                    </span>
+                  ) : null}
+                </div>
+                <div className="absolute bottom-0 p-6 sm:p-8">
+                  <p className="section-kicker">{image.title}</p>
+                  <p className="mt-3 max-w-lg font-display text-3xl leading-tight text-ash">{image.caption}</p>
+                </div>
               </div>
-              <div className="absolute bottom-0 p-6 sm:p-8">
-                <p className="section-kicker">{image.title}</p>
-                <p className="mt-3 max-w-lg font-display text-3xl leading-tight text-ash">{image.caption}</p>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );
