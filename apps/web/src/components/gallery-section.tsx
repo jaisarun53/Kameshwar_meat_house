@@ -9,41 +9,44 @@ type GallerySectionProps = {
 export function GallerySection({ images }: GallerySectionProps) {
   return (
     <section id="gallery" className="section-shell py-24">
-      <p className="section-kicker">Gallery</p>
-      <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <h2 className="font-display text-4xl text-ash sm:text-5xl">Real photos can drop in later</h2>
+      <div className="mb-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div>
+          <p className="section-kicker">Gallery</p>
+          <h2 className="mt-4 font-display text-4xl text-ash sm:text-5xl">Planned like a visual campaign</h2>
+        </div>
         <p className="max-w-2xl text-base leading-7 text-[#d9c0a0]">
-          These are dummy images only. When you send the actual dish photos, family portraits, and
-          fire-kitchen shots, this section can switch over without changing the layout.
+          The section now behaves more like an art-directed photo wall. The current images are still
+          placeholders, but the layout is ready for real dish close-ups, family portraits, and
+          kitchen-fire atmosphere.
         </p>
       </div>
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
         {images.map((image, index) => (
           <article
             key={image.id}
             className={`glass-panel overflow-hidden rounded-[2rem] ${
-              index === 0 ? 'lg:row-span-2' : ''
-            }`}
+              index === 0 ? 'min-h-[560px]' : 'min-h-[270px]'
+            } ${index === 0 ? '' : 'lg:min-h-[272px]'}`}
           >
-            <div className={`relative ${index === 0 ? 'min-h-[520px]' : 'min-h-[250px]'}`}>
+            <div className="relative h-full min-h-inherit">
               <Image
                 src={image.imageUrl}
                 alt={image.altText}
                 fill
-                className="object-cover opacity-90"
+                className="object-cover opacity-90 transition duration-700 hover:scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute left-0 top-0 p-6 sm:p-8">
+                {image.isPlaceholder ? (
+                  <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/65">
+                    Dummy image
+                  </span>
+                ) : null}
+              </div>
               <div className="absolute bottom-0 p-6 sm:p-8">
-                <div className="flex flex-wrap items-center gap-3">
-                  <p className="section-kicker">{image.title}</p>
-                  {image.isPlaceholder ? (
-                    <span className="rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-white/65">
-                      Dummy image
-                    </span>
-                  ) : null}
-                </div>
-                <p className="mt-3 max-w-lg font-display text-3xl text-ash">{image.caption}</p>
+                <p className="section-kicker">{image.title}</p>
+                <p className="mt-3 max-w-lg font-display text-3xl leading-tight text-ash">{image.caption}</p>
               </div>
             </div>
           </article>
