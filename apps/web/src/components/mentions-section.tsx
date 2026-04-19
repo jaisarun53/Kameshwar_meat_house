@@ -1,76 +1,103 @@
 import type { MediaMention } from '@/lib/types';
 
+import { Reveal } from './reveal';
+
 type MentionsSectionProps = {
   mentions: MediaMention[];
 };
 
+const FACEBOOK_REEL_URL =
+  'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F995647378584539%2F&show_text=false&width=800';
+
 export function MentionsSection({ mentions }: MentionsSectionProps) {
   return (
-    <section id="mentions" className="section-shell py-24">
-      <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
-        <div className="glass-panel rounded-[2.5rem] p-7 sm:p-8">
-          <p className="section-kicker">Featured Media</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-ash sm:text-5xl">
-            Creator-led proof, not empty self-promotion.
-          </h2>
-          <p className="mt-5 text-base leading-7 text-[#d9c0a0]">
-            This section is now designed like a media wall. Once permission is granted, we can
-            replace these cards with an embedded YouTube feature, a Facebook reel preview, and a
-            dedicated credit line for each creator.
-          </p>
-          <div className="mt-8 rounded-[2rem] border border-white/10 bg-black/25 p-5">
-            <p className="text-xs uppercase tracking-[0.26em] text-white/45">How we should present it</p>
-            <ul className="mt-5 space-y-3 text-sm leading-6 text-[#ddc4a5]">
-              <li>Use the original source link or approved edited clip</li>
-              <li>Keep the creator name visible near the media player</li>
-              <li>Mention that the feature is used with permission</li>
-            </ul>
+    <section id="featured" className="section-light featured-band">
+      <div className="site-shell py-20 lg:py-28">
+        <Reveal>
+          <div className="section-heading-wrap">
+            <p className="section-label text-[#a3472f]">Featured</p>
+            <h2 className="section-title text-[#2d2824]">
+              Press, creators, and the voices helping carry the story.
+            </h2>
+            <p className="section-copy text-[#5c5147]">
+              The featured area now keeps both major videos side by side so the social proof feels
+              intentional. Creator credit remains visible and easy to understand.
+            </p>
           </div>
-        </div>
-        <div className="grid gap-6">
-          {mentions.map((mention, index) => (
-            <a
-              key={mention.id}
-              href={mention.url}
-              target="_blank"
-              rel="noreferrer"
-              className={`glass-panel overflow-hidden rounded-[2.5rem] p-0 transition hover:border-turmeric/30 hover:bg-[#2a1c17] ${index === 1 ? 'lg:ml-10' : ''}`}
-            >
-              <div className="grid gap-px bg-white/10 lg:grid-cols-[0.78fr_1.22fr]">
-                <div className="flex min-h-[220px] items-end bg-[radial-gradient(circle_at_50%_38%,rgba(255,154,73,0.28),transparent_20%),linear-gradient(180deg,rgba(33,24,20,0.95),rgba(10,8,8,0.98))] p-6 sm:p-8">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-white/45">{mention.sourceName}</p>
-                    <div className="mt-5 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-black/30 text-2xl text-turmeric">
-                      ▶
-                    </div>
-                    <p className="mt-5 text-sm uppercase tracking-[0.24em] text-turmeric">
-                      {mention.sourceType ?? 'Feature'}
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-[#140f0d] p-6 sm:p-8">
-                  <div className="flex flex-wrap items-center gap-3">
-                    {mention.status ? (
-                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/55">
-                        {mention.status}
-                      </span>
-                    ) : null}
-                    {mention.timingNote ? (
-                      <span className="rounded-full border border-turmeric/20 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-turmeric">
-                        {mention.timingNote}
-                      </span>
-                    ) : null}
-                  </div>
-                  <h3 className="mt-5 font-display text-4xl leading-tight text-ash">{mention.title}</h3>
-                  {mention.summary ? (
-                    <p className="mt-4 max-w-2xl text-sm leading-7 text-[#d9c0a0]">{mention.summary}</p>
-                  ) : null}
-                  {mention.creditLine ? (
-                    <p className="mt-6 text-sm leading-6 text-white/60">Credit: {mention.creditLine}</p>
-                  ) : null}
-                </div>
+        </Reveal>
+
+        <div className="mt-12 grid gap-8 xl:grid-cols-2">
+          <Reveal>
+            <div className="video-feature-card mithila-panel">
+              <div className="feature-meta-row">
+                <span>Facebook reel</span>
+                <span>Featured by food creators</span>
               </div>
-            </a>
+              <div className="responsive-video-shell mt-6">
+                <iframe
+                  title="Kameshwar Meat House Facebook reel"
+                  src={FACEBOOK_REEL_URL}
+                  className="absolute inset-0 h-full w-full"
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <p className="mt-5 text-sm leading-7 text-[#5a4f45]">
+                This reel is positioned here instead of the hero so the landing page can stay focused
+                on brand identity while the feature media stays together in one dedicated section.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <div className="video-feature-card mithila-panel">
+              <div className="feature-meta-row">
+                <span>YouTube feature</span>
+                <span>Watch us in action</span>
+              </div>
+              <div className="responsive-video-shell mt-6">
+                <iframe
+                  title="Kameshwar Meat House feature video"
+                  src="https://www.youtube.com/embed/H4YIGbr_Fa0?start=313&end=400"
+                  className="absolute inset-0 h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <p className="mt-5 text-sm leading-7 text-[#5a4f45]">
+                This embed starts at 5:13 and ends at 6:40, focusing on the restaurant feature and
+                keeping the original platform visible.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          {mentions.map((mention, index) => (
+            <Reveal key={mention.id} delay={0.08 * (index + 1)}>
+              <a href={mention.url} target="_blank" rel="noreferrer" className="media-credit-card">
+                <div className="feature-meta-row">
+                  <span>{mention.sourceName}</span>
+                  <span>{mention.sourceType ?? 'Feature'}</span>
+                </div>
+                <h3 className="mt-5 font-display text-4xl leading-tight text-[#2d2824]">
+                  {mention.title}
+                </h3>
+                {mention.summary ? (
+                  <p className="mt-4 text-sm leading-7 text-[#5c5147]">{mention.summary}</p>
+                ) : null}
+                {mention.timingNote ? (
+                  <p className="mt-5 text-[11px] uppercase tracking-[0.28em] text-[#a3472f]">
+                    {mention.timingNote}
+                  </p>
+                ) : null}
+                {mention.creditLine ? (
+                  <p className="mt-3 text-sm leading-6 text-[#6f6257]">Credit: {mention.creditLine}</p>
+                ) : null}
+              </a>
+            </Reveal>
           ))}
         </div>
       </div>

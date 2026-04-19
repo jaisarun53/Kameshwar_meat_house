@@ -1,61 +1,75 @@
 import type { BusinessInfo } from '@/lib/types';
 
-import { HeroFireScene } from './hero-fire-scene';
+import { HeroVideoBackground } from './hero-video-background';
+import { Reveal } from './reveal';
 
 type HeroSectionProps = {
   businessInfo: BusinessInfo;
 };
 
 export function HeroSection({ businessInfo }: HeroSectionProps) {
-  const mapsUrl = businessInfo.mapsUrl ?? '#visit';
-  const quickFacts = [
-    { label: 'Known for', value: 'Mutton Katiya' },
-    { label: 'Legacy', value: '3 generations' },
-    { label: 'Location', value: 'Katahariya-5' },
-  ];
-
   return (
-    <section className="relative overflow-hidden">
-      <div className="hero-ring left-[8%] top-20 h-40 w-40" />
-      <div className="hero-ring right-[12%] top-10 h-64 w-64" />
-      <div className="section-shell flex min-h-[90vh] flex-col items-center justify-center gap-12 py-16 lg:py-24">
-        <div className="relative flex max-w-5xl flex-col items-center text-center">
-          <p className="section-kicker">Katahariya, Rautahat, Nepal</p>
-          <h1 className="mt-6 max-w-5xl font-display text-5xl leading-[0.95] text-ash sm:text-6xl lg:text-8xl">
-            Smoke. Clay. Fire. <span className="text-turmeric">Katiya.</span>
+    <section id="top" className="hero-stage">
+      <HeroVideoBackground />
+      <div className="hero-stage-pattern" aria-hidden="true" />
+      <div className="hero-stage-embers" aria-hidden="true">
+        <span className="ember ember-one" />
+        <span className="ember ember-two" />
+        <span className="ember ember-three" />
+        <span className="ember ember-four" />
+      </div>
+
+      <div className="site-shell min-h-[calc(100vh-5rem)] py-14 lg:py-20">
+        <Reveal className="relative z-10 mx-auto max-w-5xl text-center">
+          <div className="hero-kicker-chip">The original taste of Katahariya</div>
+          <p className="section-label mt-8 text-[#ffdb58]">Katahariya-5, Rautahat, Nepal</p>
+          <h1 className="hero-title mx-auto mt-5 max-w-4xl font-display text-[#fff7ee]">
+            The Authentic <span className="text-[#ffdb58]">Birthplace</span> Of Katiya.
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-[#d8c9b7] sm:text-lg">
-            {businessInfo.tagline} The site now frames the restaurant as a family kitchen shaped by
-            clay fire, local memory, and the taste of Katahariya.
+          <p className="hero-copy mx-auto mt-7 max-w-3xl text-[#eadbcb]">
+            Slow-cooked in clay pots over burning coals. A family legacy carried from the era of
+            Amritlal Sah to Kameshwar Sah and Sagar Kumar Jayswal.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+
+          <div className="hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="#menu"
-              className="rounded-full bg-turmeric px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-soot transition hover:bg-ash"
+              href="#story"
+              className="rounded-full bg-[#ffdb58] px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-[#2c2621] transition hover:bg-[#fff6d2]"
             >
-              Explore the menu
+              Read our story
             </a>
             <a
-              href={mapsUrl}
-              className="rounded-full border border-white/15 px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-white/80 transition hover:border-turmeric/50 hover:text-turmeric"
+              href="#featured"
+              className="rounded-full border border-white/15 px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-white/82 transition hover:border-[#ffdb58]/60 hover:text-[#ffdb58]"
             >
-              Find us in Katahariya
+              Watch features
             </a>
           </div>
-          <div className="mt-12 grid w-full max-w-3xl gap-4 sm:grid-cols-3">
-            {quickFacts.map((item) => (
-              <div key={item.label} className="glass-panel rounded-3xl p-5 text-center">
-                <p className="text-xs uppercase tracking-[0.28em] text-white/45">{item.label}</p>
-                <p className="mt-3 font-display text-2xl text-ash">{item.value}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-sm uppercase tracking-[0.22em] text-white/58">
+            Background video from the featured YouTube coverage, played muted.
+          </p>
+        </Reveal>
+
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-3">
+          {[
+            ['Legacy', '30+ years'],
+            ['Craft', 'Clay-pot fire'],
+            ['Host', 'Family home'],
+          ].map(([label, value], index) => (
+            <Reveal key={label} delay={0.08 * (index + 1)}>
+              <div className="hero-stat-card text-center">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">{label}</p>
+                <p className="mt-3 font-display text-3xl text-[#fff6ea]">{value}</p>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
-        <div className="relative w-full max-w-5xl">
-          <div className="glass-panel hero-scene-shell relative overflow-hidden rounded-[2.25rem] p-4 shadow-glow">
-            <div className="absolute inset-0 bg-smoke-gradient opacity-70" />
-            <HeroFireScene />
-          </div>
+      </div>
+      <div className="site-shell pb-10 lg:pb-16">
+        <div className="heritage-strip">
+          <span>Birthplace narrative rooted in Katahariya</span>
+          <span>Mustard oil, clay handi, wood fire</span>
+          <span>Amritlal Sah to Kameshwar Sah to Sagar Kumar Jayswal</span>
         </div>
       </div>
     </section>

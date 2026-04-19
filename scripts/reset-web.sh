@@ -9,4 +9,5 @@ source "$SCRIPT_DIR/_env.sh"
 
 cd "$WEB_DIR"
 rm -rf .next
+rm -rf node_modules/.cache
 npm run build

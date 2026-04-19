@@ -1,15 +1,27 @@
 import type { Metadata } from 'next';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 
 import './globals.css';
 
+const display = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-display',
+});
+
+const body = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+});
+
 export const metadata: Metadata = {
-  title: 'Kameshwar Meat House',
+  title: 'Purano Jayswal Meat House',
   description:
-    'An artistic restaurant website for Kameshwar Meat House in Katahariya, Rautahat, celebrating clay-pot katiya and charcoal-fired flavor.',
+    'A heritage-rich restaurant website for Kameshwar Ji Ko Katiya Pasal in Katahariya, Rautahat.',
   openGraph: {
-    title: 'Kameshwar Meat House',
+    title: 'Purano Jayswal Meat House',
     description:
-      'Clay-pot katiya, smoke, fire, and the food identity of Katahariya in one immersive restaurant experience.',
+      'The authentic clay-pot taste of Katahariya, carried through the family of Amritlal Sah.',
     type: 'website',
   },
 };
@@ -21,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${display.variable} ${body.variable}`}>{children}</body>
     </html>
   );
 }

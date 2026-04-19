@@ -1,22 +1,18 @@
 import {
   businessInfo as fallbackBusinessInfo,
-  galleryImages as fallbackGalleryImages,
   mediaMentions as fallbackMediaMentions,
   menuCategories as fallbackMenuCategories,
-  testimonials as fallbackTestimonials,
 } from './site-data';
-import type {
-  BusinessInfo,
-  Category,
-  GalleryImage,
-  MediaMention,
-  Testimonial,
-} from './types';
+import type { BusinessInfo, Category, MediaMention } from './types';
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? 'http://localhost:4000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? 'http://localhost:4000/api';
+const USE_LOCAL_CONTENT = process.env.NEXT_PUBLIC_USE_LOCAL_CONTENT === 'true';
 
 async function fetchJson<T>(path: string, fallback: T): Promise<T> {
+  if (USE_LOCAL_CONTENT) {
+    return fallback;
+  }
+
   try {
     const response = await fetch(`${API_BASE_URL}${path}`, {
       next: { revalidate: 60 },
@@ -39,14 +35,6 @@ export function getBusinessInfo() {
 
 export function getMenuCategories() {
   return fetchJson<Category[]>('/menu/categories', fallbackMenuCategories);
-}
-
-export function getGalleryImages() {
-  return fetchJson<GalleryImage[]>('/gallery', fallbackGalleryImages);
-}
-
-export function getTestimonials() {
-  return fetchJson<Testimonial[]>('/testimonials', fallbackTestimonials);
 }
 
 export function getMediaMentions() {
