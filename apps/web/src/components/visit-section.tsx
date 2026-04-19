@@ -17,9 +17,9 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
       <div className="site-shell py-20 lg:py-28">
         <Reveal>
           <div className="section-heading-wrap">
-            <p className="section-label text-[#a3472f]">Visit Us</p>
-            <h2 className="section-title text-[#2d2824]">Come to the family home where the handi still matters.</h2>
-            <p className="section-copy text-[#5c5147]">
+            <p className="section-label text-[#ffdb58]">Visit Us</p>
+            <h2 className="section-title text-[#fff6ea]">Come to the family home where the handi still matters.</h2>
+            <p className="section-copy text-[#d7c6b7]">
               This final block now combines directions, contact, reservation, and collaboration into
               one cleaner closing section instead of scattering important information around the site.
             </p>
@@ -33,7 +33,7 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
                 <span>Location</span>
                 <span>Katahariya-5, Rautahat</span>
               </div>
-              <div className="responsive-video-shell mt-6 overflow-hidden rounded-[1.6rem] border border-[#d9c7b7]">
+              <div className="responsive-video-shell mt-6 overflow-hidden rounded-[1.6rem] border border-white/10">
                 <iframe
                   title="Google map for Kameshwar Meat House"
                   src={mapEmbed}
@@ -44,14 +44,14 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
               </div>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#a3472f]">Address</p>
-                  <p className="mt-3 text-base leading-7 text-[#5c5147]">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#ffdb58]">Address</p>
+                  <p className="mt-3 text-base leading-7 text-[#d7c6b7]">
                     {businessInfo.addressLine}, {businessInfo.municipality}, {businessInfo.district}, Nepal
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#a3472f]">Contact</p>
-                  <p className="mt-3 text-base leading-7 text-[#5c5147]">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#ffdb58]">Contact</p>
+                  <p className="mt-3 text-base leading-7 text-[#d7c6b7]">
                     {businessInfo.primaryPhone}
                     <br />
                     {businessInfo.whatsappPhone}
@@ -80,18 +80,18 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
                   For table reservation, call directly and the family can help you plan your visit.
                 </p>
                 <a href="tel:9807255399" className="reserve-call-link mt-8 inline-flex">
-                  Call 9807255399
+                  Call
                 </a>
               </div>
             </Reveal>
 
             <Reveal delay={0.14}>
               <div className="visit-card">
-                <p className="section-label text-[#a3472f]">Collaborate With Us</p>
-                <h3 className="mt-4 font-display text-4xl leading-tight text-[#2d2824]">
+                <p className="section-label text-[#ffdb58]">Collaborate With Us</p>
+                <h3 className="mt-4 font-display text-4xl leading-tight text-[#fff6ea]">
                   For creators, partnerships, and media opportunities.
                 </h3>
-                <p className="mt-5 text-base leading-8 text-[#5c5147]">
+                <p className="mt-5 text-base leading-8 text-[#d7c6b7]">
                   If you want to feature the restaurant, collaborate on campaigns, or discuss
                   approved media use, reach out directly by email.
                 </p>
@@ -99,7 +99,7 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
                   href="mailto:sagarkumarjayswal98072@gmail.com"
                   className="collab-email-link mt-6 inline-flex"
                 >
-                  sagarkumarjayswal98072@gmail.com
+                  Email
                 </a>
               </div>
             </Reveal>

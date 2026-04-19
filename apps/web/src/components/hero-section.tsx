@@ -45,9 +45,6 @@ export function HeroSection({ businessInfo }: HeroSectionProps) {
               Watch features
             </a>
           </div>
-          <p className="hero-video-note mx-auto mt-6 max-w-2xl">
-            Background video from the featured YouTube coverage, played muted.
-          </p>
         </Reveal>
 
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-3">
@@ -58,8 +55,8 @@ export function HeroSection({ businessInfo }: HeroSectionProps) {
           ].map(([label, value], index) => (
             <Reveal key={label} delay={0.08 * (index + 1)}>
               <div className="hero-stat-card text-center">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">{label}</p>
-                <p className="mt-3 font-display text-3xl text-[#fff6ea]">{value}</p>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-white/45">{label}</p>
+                <p className="mt-2 font-display text-[2rem] leading-none text-[#fff6ea]">{value}</p>
               </div>
             </Reveal>
           ))}

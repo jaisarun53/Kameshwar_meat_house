@@ -15,11 +15,11 @@ export function MentionsSection({ mentions }: MentionsSectionProps) {
       <div className="site-shell py-20 lg:py-28">
         <Reveal>
           <div className="section-heading-wrap">
-            <p className="section-label text-[#a3472f]">Featured</p>
-            <h2 className="section-title text-[#2d2824]">
+            <p className="section-label text-[#ffdb58]">Featured</p>
+            <h2 className="section-title text-[#fff6ea]">
               Press, creators, and the voices helping carry the story.
             </h2>
-            <p className="section-copy text-[#5c5147]">
+            <p className="section-copy text-[#d7c6b7]">
               The featured area now keeps both major videos side by side so the social proof feels
               intentional. Creator credit remains visible and easy to understand.
             </p>
@@ -43,7 +43,7 @@ export function MentionsSection({ mentions }: MentionsSectionProps) {
                   allowFullScreen
                 />
               </div>
-              <p className="mt-5 text-sm leading-7 text-[#5a4f45]">
+              <p className="mt-5 text-sm leading-7 text-[#d7c6b7]">
                 This reel is positioned here instead of the hero so the landing page can stay focused
                 on brand identity while the feature media stays together in one dedicated section.
               </p>
@@ -66,7 +66,7 @@ export function MentionsSection({ mentions }: MentionsSectionProps) {
                   allowFullScreen
                 />
               </div>
-              <p className="mt-5 text-sm leading-7 text-[#5a4f45]">
+              <p className="mt-5 text-sm leading-7 text-[#d7c6b7]">
                 This embed starts at 5:13 and ends at 6:40, focusing on the restaurant feature and
                 keeping the original platform visible.
               </p>
@@ -82,19 +82,19 @@ export function MentionsSection({ mentions }: MentionsSectionProps) {
                   <span>{mention.sourceName}</span>
                   <span>{mention.sourceType ?? 'Feature'}</span>
                 </div>
-                <h3 className="mt-5 font-display text-4xl leading-tight text-[#2d2824]">
+                <h3 className="mt-5 font-display text-4xl leading-tight text-[#fff6ea]">
                   {mention.title}
                 </h3>
                 {mention.summary ? (
-                  <p className="mt-4 text-sm leading-7 text-[#5c5147]">{mention.summary}</p>
+                  <p className="mt-4 text-sm leading-7 text-[#d7c6b7]">{mention.summary}</p>
                 ) : null}
                 {mention.timingNote ? (
-                  <p className="mt-5 text-[11px] uppercase tracking-[0.28em] text-[#a3472f]">
+                  <p className="mt-5 text-[11px] uppercase tracking-[0.28em] text-[#ffdb58]">
                     {mention.timingNote}
                   </p>
                 ) : null}
                 {mention.creditLine ? (
-                  <p className="mt-3 text-sm leading-6 text-[#6f6257]">Credit: {mention.creditLine}</p>
+                  <p className="mt-3 text-sm leading-6 text-[#c4b2a3]">Credit: {mention.creditLine}</p>
                 ) : null}
               </a>
             </Reveal>

@@ -923,7 +923,7 @@ main {
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  padding: 1.25rem;
+  padding: 0.95rem 1rem;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(14px);
 }
@@ -1838,15 +1838,16 @@ main {
 .section-light {
   position: relative;
   background:
-    radial-gradient(circle at 18% 18%, rgba(201, 107, 80, 0.06), transparent 20%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-strong) 100%);
+    radial-gradient(circle at 18% 18%, rgba(201, 107, 80, 0.12), transparent 20%),
+    radial-gradient(circle at 82% 12%, rgba(226, 184, 74, 0.08), transparent 18%),
+    linear-gradient(180deg, #1b1512 0%, #211916 50%, #271d19 100%);
 }
 
 .section-dark {
   position: relative;
   background:
-    radial-gradient(circle at 82% 14%, rgba(226, 184, 74, 0.05), transparent 16%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-strong) 100%);
+    radial-gradient(circle at 82% 14%, rgba(226, 184, 74, 0.08), transparent 16%),
+    linear-gradient(180deg, #181311 0%, #221a17 52%, #2b211d 100%);
 }
 
 .story-band::before,
@@ -1861,26 +1862,26 @@ main {
 
 .story-band::before {
   background:
-    radial-gradient(circle at 88% 20%, rgba(58, 91, 115, 0.06), transparent 18%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+    radial-gradient(circle at 88% 20%, rgba(58, 91, 115, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
 }
 
 .menu-band::before {
   background:
-    radial-gradient(circle at 12% 30%, rgba(201, 107, 80, 0.06), transparent 16%),
-    radial-gradient(circle at 84% 70%, rgba(58, 91, 115, 0.05), transparent 18%);
+    radial-gradient(circle at 12% 30%, rgba(201, 107, 80, 0.12), transparent 16%),
+    radial-gradient(circle at 84% 70%, rgba(58, 91, 115, 0.1), transparent 18%);
 }
 
 .featured-band::before {
   background:
-    radial-gradient(circle at 18% 18%, rgba(58, 91, 115, 0.05), transparent 18%),
-    radial-gradient(circle at 84% 28%, rgba(201, 107, 80, 0.06), transparent 18%);
+    radial-gradient(circle at 18% 18%, rgba(58, 91, 115, 0.1), transparent 18%),
+    radial-gradient(circle at 84% 28%, rgba(201, 107, 80, 0.12), transparent 18%);
 }
 
 .visit-band::before {
   background:
-    radial-gradient(circle at 88% 18%, rgba(201, 107, 80, 0.06), transparent 18%),
-    radial-gradient(circle at 12% 72%, rgba(226, 184, 74, 0.06), transparent 20%);
+    radial-gradient(circle at 88% 18%, rgba(201, 107, 80, 0.12), transparent 18%),
+    radial-gradient(circle at 12% 72%, rgba(226, 184, 74, 0.1), transparent 20%);
 }
 
 .story-heritage-panel,
@@ -1893,9 +1894,9 @@ main {
 .portrait-card,
 .story-summary-card,
 .legal-note-card {
-  background: rgba(255, 250, 245, 0.82);
-  border: 1px solid var(--border);
-  box-shadow: 0 24px 70px rgba(65, 48, 35, 0.07);
+  background: linear-gradient(180deg, rgba(41, 31, 27, 0.94), rgba(27, 21, 18, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
 }
 
 .story-heritage-panel,
@@ -1928,10 +1929,10 @@ main {
   background:
     radial-gradient(circle at 30% 30%, rgba(226, 184, 74, 0.24), transparent 26%),
     linear-gradient(145deg, rgba(201, 107, 80, 0.18), rgba(58, 91, 115, 0.16));
-  border: 1px solid rgba(159, 75, 52, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-display), serif;
   font-size: 2.3rem;
-  color: var(--terracotta-deep);
+  color: #ffe7cf;
 }
 
 .portrait-copy {
@@ -1944,18 +1945,18 @@ main {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--terracotta-deep);
+  color: var(--mustard);
 }
 
 .portrait-name {
   font-family: var(--font-display), serif;
   font-size: 2rem;
   line-height: 1;
-  color: var(--ink);
+  color: #fff6ea;
 }
 
 .portrait-note {
-  color: var(--muted);
+  color: #d7c6b7;
   font-size: 0.92rem;
   line-height: 1.7rem;
 }
@@ -1980,7 +1981,7 @@ main {
   margin-top: 0.55rem;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--terracotta), var(--mustard));
-  box-shadow: 0 0 0 6px rgba(201, 107, 80, 0.12);
+  box-shadow: 0 0 0 6px rgba(201, 107, 80, 0.18);
 }
 
 .story-card {
@@ -1993,7 +1994,7 @@ main {
 }
 
 .story-card-refined {
-  background: rgba(255, 252, 247, 0.9);
+  background: linear-gradient(180deg, rgba(47, 35, 30, 0.95), rgba(30, 23, 20, 0.98));
 }
 
 .story-card-index,
@@ -2005,14 +2006,14 @@ main {
   height: 3rem;
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(201, 107, 80, 0.16), rgba(226, 184, 74, 0.18));
-  border: 1px solid rgba(159, 75, 52, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-display), serif;
   font-size: 1.2rem;
-  color: var(--terracotta-deep);
+  color: #ffe8cf;
 }
 
 .story-card-copy {
-  color: #493f38;
+  color: #dbcabd;
   font-size: 1rem;
   line-height: 1.95rem;
 }
@@ -2029,7 +2030,7 @@ main {
 }
 
 .culture-card-accent {
-  background: linear-gradient(180deg, rgba(58, 91, 115, 0.08), rgba(255, 250, 245, 0.88));
+  background: linear-gradient(180deg, rgba(58, 91, 115, 0.18), rgba(38, 28, 24, 0.96));
 }
 
 .culture-label {
@@ -2037,12 +2038,12 @@ main {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--terracotta-deep);
+  color: var(--mustard);
 }
 
 .culture-copy {
   margin-top: 0.85rem;
-  color: var(--muted);
+  color: #d7c6b7;
   font-size: 0.92rem;
   line-height: 1.7rem;
 }
@@ -2053,7 +2054,7 @@ main {
 }
 
 .insight-card-refined {
-  background: rgba(255, 253, 249, 0.92);
+  background: linear-gradient(180deg, rgba(42, 31, 27, 0.94), rgba(29, 22, 18, 0.98));
 }
 
 .menu-grid {
@@ -2065,12 +2066,12 @@ main {
 .menu-card {
   overflow: hidden;
   border-radius: 2rem;
-  box-shadow: 0 24px 70px rgba(65, 48, 35, 0.08);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.22);
 }
 
 .menu-card-refined {
-  border: 1px solid var(--border);
-  background: rgba(255, 250, 245, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(180deg, rgba(41, 31, 27, 0.96), rgba(27, 21, 18, 0.98));
 }
 
 .menu-card-visual {
@@ -2138,7 +2139,7 @@ main {
   font-family: var(--font-display), serif;
   font-size: 2rem;
   line-height: 1.05;
-  color: var(--ink);
+  color: #fff6ea;
 }
 
 .menu-price-pill {
@@ -2152,9 +2153,9 @@ main {
 }
 
 .menu-price-pill-refined {
-  border: 1px solid rgba(159, 75, 52, 0.16);
-  background: rgba(201, 107, 80, 0.08);
-  color: var(--terracotta-deep);
+  border: 1px solid rgba(255, 219, 88, 0.18);
+  background: rgba(255, 219, 88, 0.08);
+  color: #ffdb58;
 }
 
 .responsive-video-shell {
@@ -2172,7 +2173,7 @@ main {
 
 .media-credit-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 24px 50px rgba(65, 48, 35, 0.12);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.24);
 }
 
 .visit-card-dark {
@@ -2208,9 +2209,9 @@ main {
 
 .visit-cta-secondary,
 .collab-email-link {
-  border: 1px solid #b79f8a;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff3e3;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .launch-item {

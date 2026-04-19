@@ -42,6 +42,7 @@ export function HeroVideoBackground() {
 
   useEffect(() => {
     let player: YTPlayer | null = null;
+    let playerReady = false;
     let replayCheck: number | null = null;
 
     const mountPlayer = () => {
@@ -65,6 +66,7 @@ export function HeroVideoBackground() {
         },
         events: {
           onReady: ({ target }) => {
+            playerReady = true;
             target.mute();
             target.seekTo(HERO_VIDEO_START, true);
             target.playVideo();
@@ -79,7 +81,13 @@ export function HeroVideoBackground() {
       });
 
       replayCheck = window.setInterval(() => {
-        if (!player) {
+        if (
+          !player ||
+          !playerReady ||
+          typeof player.getCurrentTime !== 'function' ||
+          typeof player.seekTo !== 'function' ||
+          typeof player.playVideo !== 'function'
+        ) {
           return;
         }
 
@@ -124,6 +132,7 @@ export function HeroVideoBackground() {
         window.clearInterval(replayCheck);
       }
 
+      playerReady = false;
       player?.destroy();
     };
   }, []);
