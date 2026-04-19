@@ -7,8 +7,4 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 source "$SCRIPT_DIR/_env.sh"
 
 cd "$REPO_ROOT/apps/web"
-if [ ! -f ".next/BUILD_ID" ]; then
-  npm run build
-fi
-
-npm run start
+npm run dev
