@@ -34,18 +34,18 @@ export function HeroSection({ businessInfo }: HeroSectionProps) {
           <div className="hero-actions mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#story"
-              className="rounded-full bg-[#ffdb58] px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-[#2c2621] transition hover:bg-[#fff6d2]"
+              className="hero-primary-button"
             >
               Read our story
             </a>
             <a
               href="#featured"
-              className="rounded-full border border-white/15 px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.24em] text-white/82 transition hover:border-[#ffdb58]/60 hover:text-[#ffdb58]"
+              className="hero-primary-button"
             >
               Watch features
             </a>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-sm uppercase tracking-[0.22em] text-white/58">
+          <p className="hero-video-note mx-auto mt-6 max-w-2xl">
             Background video from the featured YouTube coverage, played muted.
           </p>
         </Reveal>

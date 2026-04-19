@@ -11,7 +11,6 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
     `${businessInfo.name}, ${businessInfo.addressLine}, ${businessInfo.district}, Nepal`,
   )}&output=embed`;
   const whatsappUrl = `https://wa.me/${businessInfo.whatsappPhone.replace(/[^0-9]/g, '')}`;
-  const checklist = businessInfo.launchChecklist ?? [];
 
   return (
     <section id="visit" className="section-light visit-band">
@@ -102,23 +101,6 @@ export function VisitSection({ businessInfo }: VisitSectionProps) {
                 >
                   sagarkumarjayswal98072@gmail.com
                 </a>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="visit-card launch-check-card">
-                <p className="section-label text-[#a3472f]">Before Launch</p>
-                <h3 className="mt-4 font-display text-4xl leading-tight text-[#2d2824]">
-                  What we still need from the family.
-                </h3>
-                <div className="mt-8 space-y-4">
-                  {checklist.map((item, index) => (
-                    <div key={item} className="launch-item launch-item-light">
-                      <div className="launch-item-index">{index + 1}</div>
-                      <p className="text-sm leading-7 text-[#5c5147]">{item}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </Reveal>
           </div>

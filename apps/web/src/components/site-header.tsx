@@ -26,7 +26,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm uppercase tracking-[0.22em] text-white/72 transition hover:text-[#ffdb58]"
+              className="text-sm uppercase tracking-[0.22em] text-[#fff3e3] transition hover:text-[#ffdb58]"
             >
               {item.label}
             </a>
