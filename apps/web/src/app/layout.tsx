@@ -18,11 +18,17 @@ export const metadata: Metadata = {
   title: 'Purano Jayswal Meat House',
   description:
     'A heritage-rich restaurant website for Kameshwar Ji Ko Katiya Pasal in Katahariya, Rautahat.',
+  icons: {
+    icon: '/brand/logo.png',
+    shortcut: '/brand/logo.png',
+    apple: '/brand/logo.png',
+  },
   openGraph: {
     title: 'Purano Jayswal Meat House',
     description:
       'The authentic clay-pot taste of Katahariya, carried through the family of Amritlal Sah.',
     type: 'website',
+    images: ['/brand/logo.png'],
   },
 };
 
